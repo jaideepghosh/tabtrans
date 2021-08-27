@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from "react";
 import './App.css';
 
 function App() {
+  const [activeUrl, setActiveUrl] = useState("");
+  useEffect(() => {
+    window.chrome.tabs.getSelected(null, (tab)=> {
+      setActiveUrl(tab.url)
+    });
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+        <img src="https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/core_market_full/generator/dist/generator/assets/images/websiteQRCode_noFrame.png" alt="logo" className="qr" />
+        <p className="message">Scan the above QR from your phone to open this active link in your mobile device.</p>
+        {
+          activeUrl
+        }
     </div>
   );
 }
