@@ -12,10 +12,17 @@ function App() {
     }
   });
   return (
+    <>
     <div className="app">
+      <div className="vertical-center">
         <QRCode value={activeUrl} className="qr" />
         <p className="message">Scan the above QR from your phone to open this active link in your mobile device.</p>
+      </div>
     </div>
+    <div class="footer">
+      <p>Developed with ❤️ by <a href="https://jaideep.xyz/" target="_blank" rel="noreferrer">Jaideep Ghosh</a></p>
+    </div>
+    </>
   );
 }
 
